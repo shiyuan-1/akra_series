@@ -1,6 +1,10 @@
 # akra_series
 Accurate Kappa Reconstruction Algorithm (AKRA): a series of open-source tools for weak-lensing mass mapping on flat and curved sky.
 
+2025-11-26: you can test test_akra_sphere.ipynb in akra_sphere
+
+
+
 **AKRA-sphere** employs *spin-weighted spherical harmonic transforms* to reconstruct the convergence field ($\kappa$) on the full or curved sky.
 
 This release extends the AKRA framework to a full, curved sky formulation that naturally supports HEALPix pixelization and realistic survey masks.
