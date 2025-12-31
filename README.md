@@ -3,6 +3,9 @@ Accurate Kappa Reconstruction Algorithm (AKRA): a series of open-source tools fo
 
 2025-11-26: you can test test_akra_sphere.ipynb in akra_sphere
 
+2025-12-30: AKRA flat: you can generate convergence in akra_hsc/ test
+* we first add the test_akra.ipynb to test the convergence and B mode map 
+* TBD: HSC series data product
 
 
 **AKRA-sphere** employs *spin-weighted spherical harmonic transforms* to reconstruct the convergence field ($\kappa$) on the full or curved sky.
@@ -19,8 +22,9 @@ Highlights:
 
 ### 📅 Coming Soon
 
-- **AKRA-flat** — the flat-sky version optimized for flat-field reconstructions
+- ~~ **AKRA-flat** — the flat-sky version optimized for flat-field reconstructions ~~
 - **AKRA 2.0** — scale-splitting strategy; a unified, high-performance release that integrates spherical and flat modules with.
+- **AKRA 3.0** - largely speed up
 
 Stay tuned — **AKRA-flat** and **AKRA 2.0** will be released **very soon**.
 
