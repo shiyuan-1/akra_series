@@ -96,41 +96,52 @@ The DES Y3 input maps and generated HDF5 realizations are not included in this r
 
 ## Research landscape
 
-The following four works show how the project connects methodological development with data applications across large-scale surveys and galaxy-cluster scales.
+These six works connect the development of AKRA 1.0, 2.0, and 3.0 with applications and extensions across large-scale surveys and galaxy-cluster scales.
 
-| Physical scale ↓ / contribution → | Method / theory | Observation / data application |
-| --- | --- | --- |
-| **Large-scale structure and surveys** | [**AKRA 3.0**](https://arxiv.org/abs/2606.06175) — matrix-free inversion for high-resolution mass mapping | [**The first AKRA mass map reconstruction from HSC Y1 data**](https://doi.org/10.1088/1475-7516/2026/02/085) — first AKRA application to real survey data |
-| **Galaxy clusters** | [**Nonlinear weak lensing reconstruction for galaxy clusters**](https://doi.org/10.1103/hn39-9hyy) — nonlinear reduced-shear reconstruction near cluster cores | [**Lambda as a Probe of Lensing Consistency**](https://arxiv.org/abs/2607.08286) — an observation-facing consistency framework for joint strong- and weak-lensing reconstruction, currently validated with simulated clusters |
+[![Four-quadrant AKRA research landscape organized by physical scale and scientific contribution](docs/akra-research-landscape.svg)](docs/akra-research-landscape.svg)
 
-The placement reflects each paper's primary emphasis. AKRA 3.0 also includes an application to DES Y3 data, while the Lambda framework is designed for observational use but is currently demonstrated with simulations.
+The placement reflects each paper's primary emphasis. Some works span more than one quadrant: AKRA 3.0 develops a new inversion method and applies it to DES Y3, while the Lambda framework is designed for observational use but is currently demonstrated with simulations.
 
-### Related publications
+## Foundational AKRA citations
 
-1. **Lambda as a Probe of Lensing Consistency**<br>
-   Yuan Shi, Li Cui, and Carlo Giocoli<br>
-   [arXiv:2607.08286](https://arxiv.org/abs/2607.08286) · [PDF](https://arxiv.org/pdf/2607.08286.pdf)
+The complete list of AKRA-series and closely related papers is given below, including both published articles and preprints.
 
-2. **AKRA 3.0: A Matrix-Free Inversion Framework for Weak Lensing Mass Mapping and Its Application to DES Y3 Data**<br>
+1. **Accurate Kappa Reconstruction Algorithm for Masked Shear Catalog (AKRA 1.0)**<br>
+   Yuan Shi, Pengjie Zhang, Zeyang Sun, and Yihe Wang<br>
+   *Physical Review D* **109**, 123530 (2024) · [Published article](https://doi.org/10.1103/PhysRevD.109.123530)
+
+2. **AKRA 2.0: Accurate Kappa Reconstruction Algorithm for Masked Shear Catalog**<br>
+   Yuan Shi, Pengjie Zhang, Furen Deng, Shuren Zhou, Hongbo Cai, Ji Yao, and Zeyang Sun<br>
+   *Journal of Cosmology and Astroparticle Physics* **2025** (07), 038 · [Published article](https://doi.org/10.1088/1475-7516/2025/07/038)
+
+3. **AKRA 3.0: A Matrix-Free Inversion Framework for Weak Lensing Mass Mapping and Its Application to DES Y3 Data**<br>
    Yuan Shi, Pengjie Zhang, Li Cui, Jian Qin, and Ji Yao<br>
-   [arXiv:2606.06175](https://arxiv.org/abs/2606.06175) · [PDF](https://arxiv.org/pdf/2606.06175.pdf)
-
-3. **Nonlinear Weak Lensing Reconstruction for Galaxy Clusters**<br>
-   Yuan Shi and Li Cui<br>
-   *Physical Review D* **113**, 103514 (2026) · [Published article](https://doi.org/10.1103/hn39-9hyy)
+   Preprint · [arXiv:2606.06175](https://arxiv.org/abs/2606.06175) · [PDF](https://arxiv.org/pdf/2606.06175.pdf)
 
 4. **The First AKRA Mass Map Reconstruction from HSC Y1 Data**<br>
    Yuan Shi, Pengjie Zhang, Zhao Chen, Jian Qin, Li Cui, Furen Deng, and Ji Yao<br>
    *Journal of Cosmology and Astroparticle Physics* **2026** (02), 085 · [Published article](https://doi.org/10.1088/1475-7516/2026/02/085)
 
-## Foundational AKRA citations
+5. **Nonlinear Weak Lensing Reconstruction for Galaxy Clusters**<br>
+   Yuan Shi and Li Cui<br>
+   *Physical Review D* **113**, 103514 (2026) · [Published article](https://doi.org/10.1103/hn39-9hyy)
 
-If AKRA contributes to your research, please cite the corresponding papers:
-
-- Y. Shi et al., “AKRA 2.0: Accurate Kappa Reconstruction Algorithm for masked shear catalog,” *Journal of Cosmology and Astroparticle Physics* **2025** (07), 038. [https://doi.org/10.1088/1475-7516/2025/07/038](https://doi.org/10.1088/1475-7516/2025/07/038)
-- Y. Shi et al., “Accurate kappa reconstruction algorithm for masked shear catalog,” *Physical Review D* **109**, 123530 (2024). [https://doi.org/10.1103/PhysRevD.109.123530](https://doi.org/10.1103/PhysRevD.109.123530)
+6. **Lambda as a Probe of Lensing Consistency**<br>
+   Yuan Shi, Li Cui, and Carlo Giocoli<br>
+   Preprint · [arXiv:2607.08286](https://arxiv.org/abs/2607.08286) · [PDF](https://arxiv.org/pdf/2607.08286.pdf)
 
 ```bibtex
+@article{Shi2024AKRA,
+  author  = {Shi, Yuan and Zhang, Pengjie and Sun, Zeyang and Wang, Yihe},
+  title   = {Accurate kappa reconstruction algorithm for masked shear catalog},
+  journal = {Physical Review D},
+  year    = {2024},
+  volume  = {109},
+  pages   = {123530},
+  doi     = {10.1103/PhysRevD.109.123530},
+  url     = {https://doi.org/10.1103/PhysRevD.109.123530}
+}
+
 @article{Shi2025AKRA2,
   author  = {Shi, Yuan and Zhang, Pengjie and Deng, Furen and Zhou, Shuren and Cai, Hongbo and Yao, Ji and Sun, Zeyang},
   title   = {{AKRA 2.0}: Accurate Kappa Reconstruction Algorithm for masked shear catalog},
@@ -139,17 +150,51 @@ If AKRA contributes to your research, please cite the corresponding papers:
   volume  = {2025},
   number  = {07},
   pages   = {038},
-  doi     = {10.1088/1475-7516/2025/07/038}
+  doi     = {10.1088/1475-7516/2025/07/038},
+  url     = {https://doi.org/10.1088/1475-7516/2025/07/038}
 }
 
-@article{Shi2024AKRA,
-  author  = {Shi, Yuan and Zhang, Pengjie and Sun, Zeyang and Wang, Yihe},
-  title   = {Accurate kappa reconstruction algorithm for masked shear catalog},
+@article{Shi2026AKRA3,
+  author        = {Shi, Yuan and Zhang, Pengjie and Cui, Li and Qin, Jian and Yao, Ji},
+  title         = {{AKRA 3.0}: A Matrix-Free Inversion Framework for Weak Lensing Mass Mapping and Its Application to {DES Y3} Data},
+  journal       = {arXiv e-prints},
+  year          = {2026},
+  eprint        = {2606.06175},
+  archivePrefix = {arXiv},
+  url           = {https://arxiv.org/abs/2606.06175}
+}
+
+@article{Shi2026HSC,
+  author  = {Shi, Yuan and Zhang, Pengjie and Chen, Zhao and Qin, Jian and Cui, Li and Deng, Furen and Yao, Ji},
+  title   = {The first {AKRA} mass map reconstruction from {HSC Y1} data},
+  journal = {Journal of Cosmology and Astroparticle Physics},
+  year    = {2026},
+  volume  = {2026},
+  number  = {02},
+  pages   = {085},
+  doi     = {10.1088/1475-7516/2026/02/085},
+  url     = {https://doi.org/10.1088/1475-7516/2026/02/085}
+}
+
+@article{Shi2026Nonlinear,
+  author  = {Shi, Yuan and Cui, Li},
+  title   = {Nonlinear weak lensing reconstruction for galaxy clusters},
   journal = {Physical Review D},
-  year    = {2024},
-  volume  = {109},
-  pages   = {123530},
-  doi     = {10.1103/PhysRevD.109.123530}
+  year    = {2026},
+  volume  = {113},
+  pages   = {103514},
+  doi     = {10.1103/hn39-9hyy},
+  url     = {https://doi.org/10.1103/hn39-9hyy}
+}
+
+@article{Shi2026Lambda,
+  author        = {Shi, Yuan and Cui, Li and Giocoli, Carlo},
+  title         = {Lambda as a Probe of Lensing Consistency},
+  journal       = {arXiv e-prints},
+  year          = {2026},
+  eprint        = {2607.08286},
+  archivePrefix = {arXiv},
+  url           = {https://arxiv.org/abs/2607.08286}
 }
 ```
 

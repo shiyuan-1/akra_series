@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">AKRA research landscape</title>
+  <desc id="desc">A four-quadrant map organizing six AKRA papers by physical scale, from galaxy clusters to large-scale surveys, and by contribution, from methods and theory to observations and data applications.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" class="arrow-head"/>
+    </marker>
+    <style type="text/css">
+      .background { fill: #ffffff; }
+      text { font-family: "DejaVu Sans", Arial, sans-serif; }
+      .title { fill: #1f2328; font-size: 28px; font-weight: 600; }
+      .subtitle { fill: #59636e; font-size: 15px; font-weight: 400; }
+      .axis-label { fill: #1f2328; font-size: 18px; font-weight: 600; }
+      .row-label { fill: #1f2328; font-size: 17px; font-weight: 600; }
+      .quadrant-large-method { fill: #eef6ff; }
+      .quadrant-large-observation { fill: #eefbf4; }
+      .quadrant-cluster-method { fill: #f6f0ff; }
+      .quadrant-cluster-observation { fill: #fff7e8; }
+      .frame { fill: none; stroke: #8c959f; stroke-width: 1.5; }
+      .divider { stroke: #8c959f; stroke-width: 1.5; }
+      .method-card { fill: #ffffff; stroke: #218bff; stroke-width: 1.5; }
+      .observation-card { fill: #ffffff; stroke: #2da44e; stroke-width: 1.5; }
+      .cluster-card { fill: #ffffff; stroke: #8250df; stroke-width: 1.5; }
+      .consistency-card { fill: #ffffff; stroke: #bf8700; stroke-width: 1.5; }
+      .paper-title { fill: #1f2328; font-size: 18px; font-weight: 600; }
+      .paper-detail { fill: #59636e; font-size: 14px; font-weight: 400; }
+      .connector { fill: none; stroke: #57606a; stroke-width: 1.5; marker-end: url(#arrow); }
+      .cross-connector { fill: none; stroke: #57606a; stroke-width: 1.5; stroke-dasharray: 6 5; marker-end: url(#arrow); }
+      .arrow-head { fill: #57606a; }
+      .note { fill: #59636e; font-size: 13px; font-weight: 400; }
+    </style>
+  </defs>
+
+  <rect class="background" width="1200" height="760"/>
+  <text class="title" x="600" y="38" text-anchor="middle">AKRA Research Landscape</text>
+  <text class="subtitle" x="600" y="66" text-anchor="middle">Physical scale × primary scientific contribution</text>
+
+  <text class="axis-label" x="405" y="105" text-anchor="middle">Method / Theory</text>
+  <text class="axis-label" x="895" y="105" text-anchor="middle">Observation / Data Application</text>
+
+  <rect class="quadrant-large-method" x="160" y="125" width="490" height="280"/>
+  <rect class="quadrant-large-observation" x="650" y="125" width="490" height="280"/>
+  <rect class="quadrant-cluster-method" x="160" y="405" width="490" height="280"/>
+  <rect class="quadrant-cluster-observation" x="650" y="405" width="490" height="280"/>
+  <rect class="frame" x="160" y="125" width="980" height="560"/>
+  <line class="divider" x1="650" y1="125" x2="650" y2="685"/>
+  <line class="divider" x1="160" y1="405" x2="1140" y2="405"/>
+
+  <text class="row-label" x="140" y="238" text-anchor="end">Large-scale</text>
+  <text class="row-label" x="140" y="262" text-anchor="end">structure</text>
+  <text class="row-label" x="140" y="286" text-anchor="end">surveys</text>
+  <text class="row-label" x="140" y="530" text-anchor="end">Galaxy-cluster</text>
+  <text class="row-label" x="140" y="554" text-anchor="end">scale</text>
+
+  <rect class="method-card" x="220" y="145" width="370" height="66" rx="8"/>
+  <text class="paper-title" x="405" y="173" text-anchor="middle">AKRA 1.0</text>
+  <text class="paper-detail" x="405" y="195" text-anchor="middle">Flat sky · masked shear catalogs</text>
+
+  <path class="connector" d="M 405 211 L 405 228"/>
+  <rect class="method-card" x="220" y="232" width="370" height="66" rx="8"/>
+  <text class="paper-title" x="405" y="260" text-anchor="middle">AKRA 2.0</text>
+  <text class="paper-detail" x="405" y="282" text-anchor="middle">Curved sky · scale splitting</text>
+
+  <path class="connector" d="M 405 298 L 405 315"/>
+  <rect class="method-card" x="220" y="319" width="370" height="66" rx="8"/>
+  <text class="paper-title" x="405" y="347" text-anchor="middle">AKRA 3.0</text>
+  <text class="paper-detail" x="405" y="369" text-anchor="middle">Matrix-free conjugate-gradient inversion</text>
+
+  <rect class="observation-card" x="710" y="172" width="370" height="82" rx="8"/>
+  <text class="paper-title" x="895" y="203" text-anchor="middle">HSC Y1 Mass Map</text>
+  <text class="paper-detail" x="895" y="228" text-anchor="middle">First AKRA reconstruction from real survey data</text>
+
+  <rect class="observation-card" x="710" y="282" width="370" height="82" rx="8"/>
+  <text class="paper-title" x="895" y="313" text-anchor="middle">AKRA 3.0 / DES Y3</text>
+  <text class="paper-detail" x="895" y="338" text-anchor="middle">High-resolution map · power spectra</text>
+  <path class="cross-connector" d="M 590 352 C 640 352, 665 323, 710 323"/>
+
+  <rect class="cluster-card" x="220" y="490" width="370" height="112" rx="8"/>
+  <text class="paper-title" x="405" y="526" text-anchor="middle">Nonlinear Cluster Reconstruction</text>
+  <text class="paper-detail" x="405" y="553" text-anchor="middle">Reduced-shear inversion near cluster cores</text>
+  <text class="paper-detail" x="405" y="577" text-anchor="middle">Stable reconstruction in the nonlinear regime</text>
+
+  <rect class="consistency-card" x="710" y="490" width="370" height="112" rx="8"/>
+  <text class="paper-title" x="895" y="526" text-anchor="middle">Lambda Lensing Consistency</text>
+  <text class="paper-detail" x="895" y="553" text-anchor="middle">Joint strong- and weak-lensing framework</text>
+  <text class="paper-detail" x="895" y="577" text-anchor="middle">Observation-facing · simulation validated</text>
+
+  <text class="note" x="650" y="722" text-anchor="middle">Dashed arrow: AKRA 3.0 spans method development and DES Y3 application.</text>
+</svg>
