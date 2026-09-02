@@ -1,67 +1,126 @@
-# akra_series
-Accurate Kappa Reconstruction Algorithm (AKRA): a series of open-source tools for weak-lensing mass mapping on flat and curved sky.
+# AKRA Series
 
-2025-11-26: you can test test_akra_sphere.ipynb in akra_sphere
+Accurate Kappa Reconstruction Algorithm (AKRA) is a collection of research tools for weak-lensing mass mapping on flat and curved skies. The repository includes the original explicit-matrix curved-sky implementation, a matrix-free conjugate-gradient prototype for AKRA 3.0, example notebooks, and DES Y3 simulation workflows.
 
-2025-12-30: AKRA flat: you can generate convergence in akra_hsc/ test
-* we first add the test_akra.ipynb to test the convergence and B mode map 
-* TBD: HSC series data product
+> This is active research software. Interfaces, documentation, and numerical workflows may change as the project develops.
 
+## Highlights
 
-**AKRA-sphere** employs *spin-weighted spherical harmonic transforms* to reconstruct the convergence field ($\kappa$) on the full or curved sky.
+- **Flat- and curved-sky reconstruction:** examples cover flat-field tests and full/partial-sky HEALPix maps.
+- **Mask-aware harmonic treatment:** the curved-sky implementation keeps the real and imaginary spin-2 components required to retain E/B-mode information in the presence of a mask.
+- **Matrix-free AKRA 3.0 prototype:** `core/akra_full_cg.py` applies the forward and adjoint operators through spherical-harmonic transforms and solves the regularized system with conjugate gradients, avoiding construction of the full coupling matrix.
+- **DES Y3 workflows:** notebooks and MPI/PBS scripts support noiseless and noisy reconstruction experiments, batch realizations, and power-spectrum analysis.
 
-This release extends the AKRA framework to a full, curved sky formulation that naturally supports HEALPix pixelization and realistic survey masks.
+## Repository layout
 
-Highlights: 
+| Path | Description |
+| --- | --- |
+| `core/akra_full.py` | Curved-sky shear/convergence transforms and the explicit-matrix `KappaRec_sphere` solver. |
+| `core/akra_full_cg.py` | Matrix-free coupling operator and `KappaRec_sphere_fast` conjugate-gradient solver. |
+| `core/sphere_ks.py` | Spherical Kaiser-Squires utilities. |
+| `utils/` | Map generation, power-spectrum, plotting, and HEALPix helper functions. |
+| `akra_spere/test_akra_sphere.ipynb` | Curved-sky AKRA demonstration notebook. |
+| `AKRA_HSC/test_akra.ipynb` | Flat-sky/HSC-style reconstruction demonstration. |
+| `memory_refined.ipynb` | AKRA 3.0 memory and wall-time estimates. |
+| `test_mask.ipynb` | Mask construction and validation experiments. |
+| `desy3_sim/` | DES Y3 single-realization tests, batch simulations, power-spectrum analysis, PBS launchers, and comparison output. |
 
-- **Curved-sky system matrix ($A$-matrix):** AKRA-sphere explicitly constructs the linear operator that couples shear and convergence in harmonic space, taking into account the spin-2 nature of the shear field and the spherical geometry.
-- **Complex harmonic treatment:** while real-valued maps (e.g., temperature fields) can be represented by the real part of their spherical harmonics, weak-lensing mass mapping requires both **real and imaginary components** of the spin-2 field to preserve the full E/B-mode information when mask exists.
-    
-    (See Appendix A.2 of *Shi et al., AKRA 2.0*, for a detailed derivation.)
-    
+## Getting started
 
-### 📅 Coming Soon
+Clone the repository and create a Python environment:
 
-- ~~ **AKRA-flat** — the flat-sky version optimized for flat-field reconstructions ~~
-- **AKRA 2.0** — scale-splitting strategy; a unified, high-performance release that integrates spherical and flat modules with.
-- **AKRA 3.0** - largely speed up
+```bash
+git clone https://github.com/shiyuan-1/akra_series.git
+cd akra_series
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install numpy scipy healpy matplotlib astropy tqdm h5py jupyter
+```
 
-Stay tuned — **AKRA-flat** and **AKRA 2.0** will be released **very soon**.
+Some notebooks and the DES Y3 workflow additionally use `pyccl`, `pandas`, `seaborn`, and `mpi4py`. Dependency versions are not yet pinned, so record the versions used for production analyses.
 
-### 📄 Citation
+The repository is not packaged yet. Run from the repository root and add the source directories to `PYTHONPATH`:
 
-- If AKRA series contributes to your research, please cite:
-    
-    @article{Shi_AKRA-2,
-    author = {Shi, Yuan and Zhang, Pengjie and Deng, Furen and Zhou, Shuren and Cai, Hongbo and Yao, Ji and Sun, Zeyang},
-    title = {AKRA 2.0: Accurate Kappa Reconstruction Algorithm for masked shear catalog},
-    journal = {Journal of Cosmology and Astroparticle Physics},
-    volume = {2025},
-    pages = {038},
-    keywords = {weak gravitational lensing
-    gravitational lensing
-    power spectrum
-    Astrophysics - Instrumentation and Methods for Astrophysics
-    Astrophysics - Cosmology and Nongalactic Astrophysics},
-    ISSN = {1475-7516},
-    DOI = {10.1088/1475-7516/2025/07/038},
-    url = {https://ui.adsabs.harvard.edu/abs/2025JCAP...07..038Shttps://iopscience.iop.org/article/10.1088/1475-7516/2025/07/038},
-    year = {2025},
-    type = {Journal Article}
-    }
-    
-    @article{Shi_AKRA-flat,
-    author = {Shi, Yuan and Zhang, Pengjie and Sun, Zeyang and Wang, Yihe},
-    title = {Accurate kappa reconstruction algorithm for masked shear catalog},
-    journal = {Physical Review D},
-    volume = {109},
-    pages = {123530},
-    keywords = {Astrophysics - Cosmology and Nongalactic Astrophysics
-    Astrophysics -
-    Instrumentation and Methods for Astrophysics},
-    ISSN = {1550-79980556-2821},
-    DOI = {10.1103/PhysRevD.109.123530},
-    url = {https://ui.adsabs.harvard.edu/abs/2024PhRvD.109l3530Shttps://journals.aps.org/prd/abstract/10.1103/PhysRevD.109.123530},
-    year = {2024},
-    type = {Journal Article}
-    }
+```bash
+export PYTHONPATH="$PWD/core:$PWD/utils${PYTHONPATH:+:$PYTHONPATH}"
+```
+
+### Matrix-free curved-sky reconstruction
+
+Given HEALPix shear maps `gamma1` and `gamma2` and a survey `mask` with the same pixelization:
+
+```python
+import healpy as hp
+from akra_full_cg import KappaRec_sphere_fast
+
+nside = hp.get_nside(gamma1)
+reconstructor = KappaRec_sphere_fast(
+    gamma1,
+    gamma2,
+    mask=mask,
+    nside_out=nside,
+    lmax=2 * nside,
+    neff=neff,          # optional effective-number-density map
+)
+
+kappa = reconstructor.sphere_AKRA(
+    lam=1e-3,
+    cgtol=2e-3,
+    maxiter=150,
+)
+```
+
+Set `neff=None` when no inverse-noise weighting is required. The regularization strength and convergence settings should be validated for each survey geometry and resolution.
+
+## DES Y3 simulations
+
+`desy3_sim/massmapping_100realizations_withNoise.py` distributes noisy realizations across MPI ranks and writes one HDF5 file per realization. The accompanying notebooks compare Kaiser-Squires and AKRA reconstructions and measure their power spectra.
+
+These files currently contain site-specific paths and PBS resource requests. Before running them, update:
+
+- `AKRA_DIR`, `SKYMAP_DIR`, and `DATA_FILE` in the Python workflow;
+- the working directory, queue, nodes, and environment in the PBS scripts;
+- the input and output directories in the analysis notebooks.
+
+The DES Y3 input maps and generated HDF5 realizations are not included in this repository.
+
+## Development snapshot
+
+- **2025-11-26:** added the curved-sky demonstration notebook.
+- **2025-12-30:** added the flat-sky/HSC reconstruction example.
+- **2026-09-02:** added the AKRA 3.0 matrix-free solver, resource-estimate notebook, and DES Y3 simulation/analysis workflows.
+
+## Citation
+
+If AKRA contributes to your research, please cite the following papers:
+
+- Y. Shi et al., “AKRA 2.0: Accurate Kappa Reconstruction Algorithm for masked shear catalog,” *Journal of Cosmology and Astroparticle Physics* **2025** (07), 038. [https://doi.org/10.1088/1475-7516/2025/07/038](https://doi.org/10.1088/1475-7516/2025/07/038)
+- Y. Shi et al., “Accurate kappa reconstruction algorithm for masked shear catalog,” *Physical Review D* **109**, 123530 (2024). [https://doi.org/10.1103/PhysRevD.109.123530](https://doi.org/10.1103/PhysRevD.109.123530)
+
+```bibtex
+@article{Shi2025AKRA2,
+  author  = {Shi, Yuan and Zhang, Pengjie and Deng, Furen and Zhou, Shuren and Cai, Hongbo and Yao, Ji and Sun, Zeyang},
+  title   = {{AKRA 2.0}: Accurate Kappa Reconstruction Algorithm for masked shear catalog},
+  journal = {Journal of Cosmology and Astroparticle Physics},
+  year    = {2025},
+  volume  = {2025},
+  number  = {07},
+  pages   = {038},
+  doi     = {10.1088/1475-7516/2025/07/038}
+}
+
+@article{Shi2024AKRA,
+  author  = {Shi, Yuan and Zhang, Pengjie and Sun, Zeyang and Wang, Yihe},
+  title   = {Accurate kappa reconstruction algorithm for masked shear catalog},
+  journal = {Physical Review D},
+  year    = {2024},
+  volume  = {109},
+  pages   = {123530},
+  doi     = {10.1103/PhysRevD.109.123530}
+}
+```
+
+## Contact
+
+The project is currently developed and maintained by Yuan Shi. For questions or suggestions, contact [shiyuan0929@gmail.com](mailto:shiyuan0929@gmail.com).

@@ -1,0 +1,34 @@
+#!/bin/bash
+#PBS -N akra1
+#PBS -l nodes=gr02:ppn=72+gr03:ppn=72+gr05:ppn=72+gr07:ppn=72+gr08:ppn=72
+#PBS -l walltime=30:00:00
+#PBS -q normal
+#PBS -o ./pbs_${PBS_JOBNAME}_${PBS_JOBID}.out
+#PBS -e ./pbs_${PBS_JOBNAME}_${PBS_JOBID}.err
+
+############## Prepare the environment ##############
+module purge
+module load anaconda/conda-4.12.0
+source activate mypy310
+
+cpus_per_task=36
+export OMP_NUM_THREADS=72
+realization_group=${REALIZATION_GROUP:-0}
+if [[ "$realization_group" != "0" && "$realization_group" != "1" ]]; then echo "REALIZATION_GROUP must be 0 or 1"; exit 1; fi
+realization_start=$((50 * realization_group))
+realization_stop=$((realization_start + 50))
+
+################# Prepare the nodefile #################
+source /opt/sharing/cpus-per-task.sh
+read -r total_tasks nodes cpus_per_task new_nodefile <<< $(prepare_nodefile ${cpus_per_task})
+export PBS_NODEFILE=$new_nodefile
+
+################# Run the MPI program #################
+echo "Running with ${total_tasks} processes on ${nodes} nodes with cpu-per-task = ${cpus_per_task}"
+echo "Realization group ${realization_group}: [${realization_start}, ${realization_stop})"
+time_start=$(date +%s)
+echo "******************** START ********************"
+which python
+
+cd /home/yshi/work/work_gravity/desy3_sim/
+mpirun -np $total_tasks python -u massmapping_100realizations_withNoise.py --n-realizations 100 --start-realization $realization_start --stop-realization $realization_stop
