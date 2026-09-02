@@ -3,6 +3,10 @@
 Accurate Kappa Reconstruction Algorithm (AKRA) is a collection of research tools for weak-lensing mass mapping on flat and curved skies. The repository includes the original explicit-matrix curved-sky implementation, a matrix-free conjugate-gradient prototype for AKRA 3.0, example notebooks, and DES Y3 simulation workflows.
 
 > This is active research software. Interfaces, documentation, and numerical workflows may change as the project develops.
+>
+> This project is currently developed and maintained solely by me. The relevant documentation and instructions are still being prepared and will be updated gradually. If you encounter any issues or have suggestions, please feel free to contact me at: shiyuan0929@gmail.com
+>
+> Thank you for your interest and support!
 
 ## Highlights
 
@@ -66,7 +70,6 @@ reconstructor = KappaRec_sphere_fast(
 
 kappa = reconstructor.sphere_AKRA(
     lam=1e-3,
-    cgtol=2e-3,
     maxiter=150,
 )
 ```
@@ -91,9 +94,38 @@ The DES Y3 input maps and generated HDF5 realizations are not included in this r
 - **2025-12-30:** added the flat-sky/HSC reconstruction example.
 - **2026-09-02:** added the AKRA 3.0 matrix-free solver, resource-estimate notebook, and DES Y3 simulation/analysis workflows.
 
-## Citation
+## Research landscape
 
-If AKRA contributes to your research, please cite the following papers:
+The following four works show how the project connects methodological development with data applications across large-scale surveys and galaxy-cluster scales.
+
+| Physical scale ↓ / contribution → | Method / theory | Observation / data application |
+| --- | --- | --- |
+| **Large-scale structure and surveys** | [**AKRA 3.0**](https://arxiv.org/abs/2606.06175) — matrix-free inversion for high-resolution mass mapping | [**The first AKRA mass map reconstruction from HSC Y1 data**](https://doi.org/10.1088/1475-7516/2026/02/085) — first AKRA application to real survey data |
+| **Galaxy clusters** | [**Nonlinear weak lensing reconstruction for galaxy clusters**](https://doi.org/10.1103/hn39-9hyy) — nonlinear reduced-shear reconstruction near cluster cores | [**Lambda as a Probe of Lensing Consistency**](https://arxiv.org/abs/2607.08286) — an observation-facing consistency framework for joint strong- and weak-lensing reconstruction, currently validated with simulated clusters |
+
+The placement reflects each paper's primary emphasis. AKRA 3.0 also includes an application to DES Y3 data, while the Lambda framework is designed for observational use but is currently demonstrated with simulations.
+
+### Related publications
+
+1. **Lambda as a Probe of Lensing Consistency**<br>
+   Yuan Shi, Li Cui, and Carlo Giocoli<br>
+   [arXiv:2607.08286](https://arxiv.org/abs/2607.08286) · [PDF](https://arxiv.org/pdf/2607.08286.pdf)
+
+2. **AKRA 3.0: A Matrix-Free Inversion Framework for Weak Lensing Mass Mapping and Its Application to DES Y3 Data**<br>
+   Yuan Shi, Pengjie Zhang, Li Cui, Jian Qin, and Ji Yao<br>
+   [arXiv:2606.06175](https://arxiv.org/abs/2606.06175) · [PDF](https://arxiv.org/pdf/2606.06175.pdf)
+
+3. **Nonlinear Weak Lensing Reconstruction for Galaxy Clusters**<br>
+   Yuan Shi and Li Cui<br>
+   *Physical Review D* **113**, 103514 (2026) · [Published article](https://doi.org/10.1103/hn39-9hyy)
+
+4. **The First AKRA Mass Map Reconstruction from HSC Y1 Data**<br>
+   Yuan Shi, Pengjie Zhang, Zhao Chen, Jian Qin, Li Cui, Furen Deng, and Ji Yao<br>
+   *Journal of Cosmology and Astroparticle Physics* **2026** (02), 085 · [Published article](https://doi.org/10.1088/1475-7516/2026/02/085)
+
+## Foundational AKRA citations
+
+If AKRA contributes to your research, please cite the corresponding papers:
 
 - Y. Shi et al., “AKRA 2.0: Accurate Kappa Reconstruction Algorithm for masked shear catalog,” *Journal of Cosmology and Astroparticle Physics* **2025** (07), 038. [https://doi.org/10.1088/1475-7516/2025/07/038](https://doi.org/10.1088/1475-7516/2025/07/038)
 - Y. Shi et al., “Accurate kappa reconstruction algorithm for masked shear catalog,” *Physical Review D* **109**, 123530 (2024). [https://doi.org/10.1103/PhysRevD.109.123530](https://doi.org/10.1103/PhysRevD.109.123530)
