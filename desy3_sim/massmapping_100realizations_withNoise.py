@@ -4,6 +4,11 @@ import healpy as hp
 import numpy as np
 from mpi4py import MPI
 
+# IMPORTANT: The absolute paths in this file are examples from the author's
+# machine. Replace them with paths on your own computer or cluster before use.
+# AKRA_DIR must point to the repository root and currently needs a trailing "/"
+# because the import paths below are assembled by string concatenation.
+
 AKRA_DIR = "/home/yshi/work/work_gravity/akra_series_local/"
 sys.path.extend([AKRA_DIR + "utils/", AKRA_DIR + "core/"])
 from gaussianfield import get_cl
@@ -11,6 +16,8 @@ from akra_full import sph_gamma2kappa, sph_kappa2gamma
 from akra_full_cg import KappaRec_sphere_fast
 
 COMM, RANK, SIZE = MPI.COMM_WORLD, MPI.COMM_WORLD.Get_rank(), MPI.COMM_WORLD.Get_size()
+# Machine-specific DES Y3 data location. Update both the directory and filename
+# for your local copy of the survey maps.
 SKYMAP_DIR = "/home/yshi/Data/desy3_data2/"
 DATA_FILE = "desy3_shear_maps_sharp_nside2048_zmin0.0_zmax1.5.hdf5"
 BIN_INDEX, NSIDE_DATA, NEFF_THRESHOLD, SIGMA_E = 0, 2048, 2.0, 0.26
@@ -84,6 +91,8 @@ def main():
     if args.n_realizations < 1: raise ValueError("--n-realizations must be positive")
     stop_realization = args.n_realizations if args.stop_realization is None else args.stop_realization
     if not 0 <= args.start_realization < stop_realization <= args.n_realizations: raise ValueError("Require 0 <= start-realization < stop-realization <= n-realizations")
+    # Without --output-dir, results are written under the machine-specific
+    # SKYMAP_DIR above. Prefer an explicit path when running elsewhere.
     lmax = 2 * args.nside if args.lmax is None else args.lmax
     output_dir = args.output_dir or os.path.join(SKYMAP_DIR, "desy3_sim_withNoise_N%d_seed%d" % (args.n_realizations, args.base_seed))
     if RANK == 0:

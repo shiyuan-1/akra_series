@@ -66,9 +66,11 @@
   <text class="paper-title" x="405" y="347" text-anchor="middle">AKRA 3.0</text>
   <text class="paper-detail" x="405" y="369" text-anchor="middle">Matrix-free conjugate-gradient inversion</text>
 
-  <rect class="observation-card" x="710" y="172" width="370" height="82" rx="8"/>
-  <text class="paper-title" x="895" y="203" text-anchor="middle">HSC Y1 Mass Map</text>
-  <text class="paper-detail" x="895" y="228" text-anchor="middle">First AKRA reconstruction from real survey data</text>
+  <rect class="observation-card" x="710" y="156" width="370" height="110" rx="8"/>
+  <text class="paper-title" x="895" y="187" text-anchor="middle">HSC Y1 Mass Map</text>
+  <text class="paper-detail" x="895" y="215" text-anchor="middle">Real HSC Y1 survey reconstruction</text>
+  <text class="paper-detail" x="895" y="240" text-anchor="middle">Validated: power spectrum · PDF · skewness</text>
+  <path class="cross-connector" d="M 590 178 C 635 178, 665 205, 710 205"/>
 
   <rect class="observation-card" x="710" y="282" width="370" height="82" rx="8"/>
   <text class="paper-title" x="895" y="313" text-anchor="middle">AKRA 3.0 / DES Y3</text>
@@ -85,5 +87,5 @@
   <text class="paper-detail" x="895" y="553" text-anchor="middle">Joint strong- and weak-lensing framework</text>
   <text class="paper-detail" x="895" y="577" text-anchor="middle">Observation-facing · simulation validated</text>
 
-  <text class="note" x="650" y="722" text-anchor="middle">Dashed arrow: AKRA 3.0 spans method development and DES Y3 application.</text>
+  <text class="note" x="650" y="722" text-anchor="middle">Dashed arrows connect AKRA methods to their HSC Y1 and DES Y3 survey applications.</text>
 </svg>

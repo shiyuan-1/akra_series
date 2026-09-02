@@ -1,4 +1,9 @@
 #!/bin/bash
+# IMPORTANT: This launcher is specific to the author's PBS cluster. Replace the
+# node names, queue, wall time, modules, Conda environment, helper-script path,
+# working directory, and MPI/thread settings for your own computing system.
+# See desy3_sim/README.md for the full portability checklist.
+
 #PBS -N akra1
 #PBS -l nodes=gr02:ppn=72+gr03:ppn=72+gr05:ppn=72+gr07:ppn=72+gr08:ppn=72
 #PBS -l walltime=30:00:00
@@ -19,6 +24,7 @@ realization_start=$((50 * realization_group))
 realization_stop=$((realization_start + 50))
 
 ################# Prepare the nodefile #################
+# Site-local helper: replace or remove this line on another cluster.
 source /opt/sharing/cpus-per-task.sh
 read -r total_tasks nodes cpus_per_task new_nodefile <<< $(prepare_nodefile ${cpus_per_task})
 export PBS_NODEFILE=$new_nodefile
@@ -30,5 +36,6 @@ time_start=$(date +%s)
 echo "******************** START ********************"
 which python
 
+# Machine-specific repository path: change this to your own desy3_sim directory.
 cd /home/yshi/work/work_gravity/desy3_sim/
 mpirun -np $total_tasks python -u massmapping_100realizations_withNoise.py --n-realizations 100 --start-realization $realization_start --stop-realization $realization_stop
