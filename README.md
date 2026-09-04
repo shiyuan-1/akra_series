@@ -126,11 +126,11 @@ The complete list of AKRA-series and closely related papers is given below, incl
 
 1. **Accurate Kappa Reconstruction Algorithm for Masked Shear Catalog (AKRA 1.0)**<br>
    Yuan Shi, Pengjie Zhang, Zeyang Sun, and Yihe Wang<br>
-   *Physical Review D* **109**, 123530 (2024) · [Published article](https://doi.org/10.1103/PhysRevD.109.123530)
+   *Physical Review D* **109**, 123530 (2024) · [Link](https://doi.org/10.1103/PhysRevD.109.123530)
 
 2. **AKRA 2.0: Accurate Kappa Reconstruction Algorithm for Masked Shear Catalog**<br>
    Yuan Shi, Pengjie Zhang, Furen Deng, Shuren Zhou, Hongbo Cai, Ji Yao, and Zeyang Sun<br>
-   *Journal of Cosmology and Astroparticle Physics* **2025** (07), 038 · [Published article](https://doi.org/10.1088/1475-7516/2025/07/038)
+   *Journal of Cosmology and Astroparticle Physics* **2025** (07), 038 · [Link](https://doi.org/10.1088/1475-7516/2025/07/038)
 
 3. **AKRA 3.0: A Matrix-Free Inversion Framework for Weak Lensing Mass Mapping and Its Application to DES Y3 Data**<br>
    Yuan Shi, Pengjie Zhang, Li Cui, Jian Qin, and Ji Yao<br>
@@ -138,14 +138,14 @@ The complete list of AKRA-series and closely related papers is given below, incl
 
 4. **The First AKRA Mass Map Reconstruction from HSC Y1 Data**<br>
    Yuan Shi, Pengjie Zhang, Zhao Chen, Jian Qin, Li Cui, Furen Deng, and Ji Yao<br>
-   *Journal of Cosmology and Astroparticle Physics* **2026** (02), 085 · [Published article](https://doi.org/10.1088/1475-7516/2026/02/085)
+   *Journal of Cosmology and Astroparticle Physics* **2026** (02), 085 · [Link](https://doi.org/10.1088/1475-7516/2026/02/085)
 
 5. **Nonlinear Weak Lensing Reconstruction for Galaxy Clusters**<br>
    Yuan Shi and Li Cui<br>
-   *Physical Review D* **113**, 103514 (2026) · [Published article](https://doi.org/10.1103/hn39-9hyy)
+   *Physical Review D* **113**, 103514 (2026) · [Link](https://doi.org/10.1103/hn39-9hyy)
 
 6. **Lambda as a Probe of Lensing Consistency**<br>
-   Yuan Shi, Li Cui, and Carlo Giocoli<br>
+   Li Cui, Yuan Shi, and Carlo Giocoli<br>
    Preprint · [arXiv:2607.08286](https://arxiv.org/abs/2607.08286) · [PDF](https://arxiv.org/pdf/2607.08286.pdf)
 
 ```bibtex
@@ -205,8 +205,8 @@ The complete list of AKRA-series and closely related papers is given below, incl
   url     = {https://doi.org/10.1103/hn39-9hyy}
 }
 
-@article{Shi2026Lambda,
-  author        = {Shi, Yuan and Cui, Li and Giocoli, Carlo},
+@article{Cui2026Lambda,
+  author        = {Cui, Li and Shi, Yuan and Giocoli, Carlo},
   title         = {Lambda as a Probe of Lensing Consistency},
   journal       = {arXiv e-prints},
   year          = {2026},
