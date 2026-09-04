@@ -6,6 +6,8 @@ Accurate Kappa Reconstruction Algorithm (AKRA) is a collection of research tools
 >
 > This project is currently developed and maintained solely by me. The relevant documentation and instructions are still being prepared and will be updated gradually. If you encounter any issues or have suggestions, please feel free to contact me at: shiyuan0929@gmail.com
 >
+> A small confession: I enjoy building algorithms much more than writing comments! We are gradually organizing the AKRA code and user guides. The AKRA modules can also be embedded directly into your local research project and adapted to your existing workflow. Without AKRA 3.0's major leap in speed and efficiency, I might have retired AKRA 1.0 and 2.0 to the archive—they really are that slow to run. Fortunately, AKRA 3.0 gives the series a much faster future.
+>
 > Thank you for your interest and support!
 
 ## Highlights
