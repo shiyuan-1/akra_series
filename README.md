@@ -98,13 +98,17 @@ The DES Y3 input maps and generated HDF5 realizations are not included in this r
 
 ### High priority
 
-- Complete the AKRA flat-sky documentation.
+- Complete the AKRA flat-sky and iterative reconstruction for nonlinear regimes (AKRA cluster) documentation.
 - Establish a Discord channel and workflow for collaboration.
 - Release and document the DES Y3 data products and scientific results.
 
-### Low priority
+### Medium priority
 
 - Expand the curved-sky documentation. AKRA 2.0 already provides a comprehensive methodological description, and most collaborators can use their preferred AI-assisted workflows to configure and run AKRA 3.0 in different computing environments.
+
+### Low priority
+
+- Develop AKRA 3.0-like matrix-free inversion algorithms for other research areas, such as interferometry.
 
 ## Research landscape
 
