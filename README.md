@@ -94,6 +94,18 @@ The DES Y3 input maps and generated HDF5 realizations are not included in this r
 - **2025-12-30:** added the flat-sky/HSC reconstruction example.
 - **2026-09-02:** added the AKRA 3.0 matrix-free solver, resource-estimate notebook, and DES Y3 simulation/analysis workflows.
 
+## Roadmap
+
+### High priority
+
+- Complete the AKRA flat-sky documentation.
+- Establish a Discord channel and workflow for collaboration.
+- Release and document the DES Y3 data products and scientific results.
+
+### Low priority
+
+- Expand the curved-sky documentation. AKRA 2.0 already provides a comprehensive methodological description, and most collaborators can use their preferred AI-assisted workflows to configure and run AKRA 3.0 in different computing environments.
+
 ## Research landscape
 
 These six works connect the development of AKRA 1.0, 2.0, and 3.0 with applications and extensions across large-scale surveys and galaxy-cluster scales.
